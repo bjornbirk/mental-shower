@@ -11,14 +11,22 @@ export class HomePage implements OnInit {
 
 
 
-// Set up stages
+// Set up stages to control what components to show to the user
+/* The stages are:
+  0: initialize
+  1: gender selection
+  2: temperature selection
+  3: air quality selection
+  4: humidity selection
+  5: thank you confirmation
+*/
 stage:number;
-// dismissable:boolean = false;
 
-// Set up user
+// Set up user object / REDO THIS
   user = {
     id: "",
     gender: 0,
+    dateTime: Date.now(),
     temperature: 0,
     airquality: 0,
     humidity: 0
@@ -28,8 +36,7 @@ stage:number;
     // Stage 0; set up user object
     this.stage = 0; 
 
-  // Check User Id; If new user, create new Id. 
-
+  // Check User Id; If new user, create new userId. 
     if (localStorage.getItem('mentalShowerUserId')) {
       this.user.id = localStorage.getItem('mentalShowerUserId');
     } else {
@@ -37,24 +44,18 @@ stage:number;
       localStorage.setItem('mentalShowerUserId', this.user.id);
     }
 
-this.stage++;
-console.log(this.stage);
- 
+    // go to next stage
+  this.stage++;
+  
   }
 
+// array for the read answers from firestore
+  storedAnswers = [];
 
-  notes = []; 
 
 
 
-  /* The stages are:
-  0: init
-  1: gender selection
-  2: temperature selection
-  3: air quality selection
-  4: humidity selection
-  5: thank you confirmation
-*/
+  
  
 
 // answer method, passing the category and the selected value as a number
@@ -74,52 +75,43 @@ answer(cat:string, val:number) {
 
   if(cat=="humidity"){
     this.user.humidity = val;
+    this.sendAnswers();
   }
 
-
+  // go to next stage
   this.stage++;
 };
 
 
 
   constructor(private dataService: DataService, private alertCtrl: AlertController) {
-    this.dataService.getNotes().subscribe(res => {
+ 
+
+    // Get all answers from all users
+    this.dataService.getAnswers().subscribe(res => {
       console.log(res);
-      this.notes = res; 
+      this.storedAnswers = res; 
     })
   }
 
-  openNote(note) {}
 
-  async addNote() {
-    const alert = await this.alertCtrl.create({
-      header: 'Add Note',
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'my note title',
-          type: 'text'
-        },
-        {
-          name: 'text',
-          placeholder: 'my note text',
-          type: 'textarea'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel,'
-      },
-      {
-        text: 'Add',
-        handler: (res) => {
-          this.dataService.addNote({title: res.title, text: res.text})
-        }
-      }
-    ]
+  // Store user data and survey answers
+  async sendAnswers() {
+
+    console.log(this.user);
+    this.dataService.storeAnswers({
+      userId: this.user.id,
+      gender: this.user.gender,
+      dateTime: this.user.dateTime,
+      temperature: this.user.temperature,
+      airquality: this.user.airquality,
+      humidity: this.user.humidity
     });
-    await alert.present();
+
+
+
+
   }
+
 
 }
