@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Firestore, collection, collectionData, doc, docData, addDoc } from "@angular/fire/firestore";
+import { Firestore, collection, collectionData, doc, docData, addDoc, Timestamp } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 
 // Interface for user data and survey answers
@@ -7,11 +7,15 @@ export interface MentalShowerAnswers {
     id?: string;
     userId: string;
     gender: number;
-    dateTime: number;
+    timecode: Timestamp;
     temperature: number;
     airquality: number;
     humidity: number;
 }
+
+
+
+
 
 @Injectable({
     providedIn: 'root'

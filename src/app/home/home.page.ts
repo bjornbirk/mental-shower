@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Timestamp } from '@angular/fire/firestore';
 import { AlertController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
@@ -7,9 +8,8 @@ import { DataService } from '../services/data.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage implements OnInit {
-
-
 
 // Set up stages to control what components to show to the user
 /* The stages are:
@@ -23,16 +23,18 @@ export class HomePage implements OnInit {
 stage:number;
 
 // Set up user object / REDO THIS
-  user = {
+
+user = {
     id: "",
     gender: 0,
-    dateTime: Date.now(),
+    timecode: new Date(),
     temperature: 0,
     airquality: 0,
     humidity: 0
   }
 
   ngOnInit(): void {
+    console.log(this.storedAnswers);
     // Stage 0; set up user object
     this.stage = 0; 
 
@@ -102,7 +104,7 @@ answer(cat:string, val:number) {
     this.dataService.storeAnswers({
       userId: this.user.id,
       gender: this.user.gender,
-      dateTime: this.user.dateTime,
+      timecode: Timestamp.now(),
       temperature: this.user.temperature,
       airquality: this.user.airquality,
       humidity: this.user.humidity
