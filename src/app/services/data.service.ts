@@ -8,6 +8,7 @@ export interface MentalShowerAnswers {
     userId: string;
     gender: number;
     timecode: Timestamp;
+    zone: number;
     temperature: number;
     airquality: number;
     humidity: number;

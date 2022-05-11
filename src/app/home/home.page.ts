@@ -12,6 +12,7 @@ import { DataService } from '../services/data.service';
 
 export class HomePage implements OnInit {
 
+
   zones = [
     {
       id: 1,
@@ -56,6 +57,7 @@ user = {
     id: "",
     gender: 0,
     timecode: new Date(),
+    zone: 0,
     temperature: 0,
     airquality: 0,
     humidity: 0
@@ -63,6 +65,13 @@ user = {
 
   ngOnInit(): void {
     console.log(this.storedAnswers);
+
+    // Set zone selection from QR code as property of user
+    this.user.zone = parseInt(this.route.snapshot.paramMap.get('id'));
+//    let id = parseInt(this.route.snapshot.paramMap.get('id'));
+//    this.zoneId = id;
+//    this.user.zone = id;
+
     // Stage 0; set up user object
     this.stage = 0; 
 
@@ -77,8 +86,7 @@ user = {
     // go to next stage
   this.stage++;
 
-  let id = parseInt(this.route.snapshot.paramMap.get('id'));
-  this.zoneId = id;
+ 
 
   }
 
@@ -130,12 +138,12 @@ answer(cat:string, val:number) {
     })
   }
 
+// DELETE LATER
   onSelect(zone) {
     this.router.navigate(['/home',zone.id])
   }
 
-  public zoneId;
-
+//  public zoneId;
   
 
   // Store user data and survey answers
@@ -146,6 +154,7 @@ answer(cat:string, val:number) {
       userId: this.user.id,
       gender: this.user.gender,
       timecode: Timestamp.now(),
+      zone: this.user.zone,
       temperature: this.user.temperature,
       airquality: this.user.airquality,
       humidity: this.user.humidity
