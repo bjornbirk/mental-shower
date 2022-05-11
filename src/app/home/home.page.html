@@ -24,6 +24,14 @@
   <li>Air Quality: {{user.airquality}}</li>
   <li>Humidity: {{user.humidity}}</li>
 </ul>
+<ul class="items">
+  YOU ARE IN ZONE NUMBER {{zoneId}}
+  <li (click)="onSelect(zone)" *ngFor="let zone of zones" >
+    
+    ID:{{zone.id}} --- NAME: {{zone.name}}
+    
+  </li>
+</ul>
 
 
 <div id="gender-selection" *ngIf="stage==1">

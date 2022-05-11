@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Timestamp } from '@angular/fire/firestore';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
@@ -10,6 +11,33 @@ import { DataService } from '../services/data.service';
 })
 
 export class HomePage implements OnInit {
+
+  zones = [
+    {
+      id: 1,
+      name: 'zone 1',
+    },
+    {
+      id: 2,
+      name: 'zone 2',
+    },
+    {
+      id: 3,
+      name: 'zone 3',
+    },
+    {
+      id: 4,
+      name: 'zone 4',
+    },
+    {
+      id: 5,
+      name: 'zone 5',
+    },
+    {
+      id: 6,
+      name: 'zone 6',
+    },
+  ];
 
 // Set up stages to control what components to show to the user
 /* The stages are:
@@ -48,7 +76,10 @@ user = {
 
     // go to next stage
   this.stage++;
-  
+
+  let id = parseInt(this.route.snapshot.paramMap.get('id'));
+  this.zoneId = id;
+
   }
 
 // array for the read answers from firestore
@@ -86,8 +117,11 @@ answer(cat:string, val:number) {
 
 
 
-  constructor(private dataService: DataService, private alertCtrl: AlertController) {
+  constructor(private dataService: DataService, private alertCtrl: AlertController, private router: Router,
+    private route: ActivatedRoute
+    ) {
  
+
 
     // Get all answers from all users
     this.dataService.getAnswers().subscribe(res => {
@@ -96,6 +130,13 @@ answer(cat:string, val:number) {
     })
   }
 
+  onSelect(zone) {
+    this.router.navigate(['/home',zone.id])
+  }
+
+  public zoneId;
+
+  
 
   // Store user data and survey answers
   async sendAnswers() {
