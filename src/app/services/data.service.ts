@@ -25,4 +25,6 @@ export class DataService {
         const notesRef = collection(this.firestore, 'notes');
         return addDoc(notesRef, note);
     }
+
+    
 }
