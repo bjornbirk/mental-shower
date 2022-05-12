@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  
+
+<div class="spacer"></div>
+<h1>Statistics Dashboard</h1>
+
+<ion-grid>
+<ion-row>
+<ion-col>
+<ion-card>
+  <ion-card-header>
+  <ion-card-title>Total Surveys</ion-card-title>
+  <ion-card-subtitle>The total number submissions in the survey</ion-card-subtitle>
+</ion-card-header>
+<ion-card-content>
+  <div class="large-number">{{storedAnswers.length}}</div>
+
+</ion-card-content>
+</ion-card>
+</ion-col>
+<ion-col>
+<ion-card>
+  <ion-card-header>
+  <ion-card-title>Unique Users</ion-card-title>
+  <ion-card-subtitle>The total number of unique users</ion-card-subtitle>
+</ion-card-header>
+<ion-card-content>
+  <div class="large-number">XX</div>
+
+</ion-card-content>
+</ion-card>
+
+</ion-col>
+
+
+
+</ion-row>
+
+</ion-grid>
+
+
+<h3>Stored User Data from Firestore</h3>
+<ion-list>
+  <ion-item *ngFor="let storedAnswer of storedAnswers">
+    <ion-label><strong>Firestore docId:</strong> {{storedAnswer.id}}</ion-label>
+    <ion-label><strong>userId:</strong> {{storedAnswer.userId}}</ion-label>
+    <ion-label><strong>gender:</strong> {{storedAnswer.gender}}</ion-label>
+    <ion-label><strong>timecode:</strong> {{storedAnswer.timecode}}</ion-label>
+    <ion-label><strong>zone:</strong> {{storedAnswer.zone}}</ion-label>
+    <ion-label><strong>temperature:</strong> {{storedAnswer.temperature}}</ion-label>
+    <ion-label><strong>airquality:</strong> {{storedAnswer.airquality}}</ion-label>
+    <ion-label><strong>humidity:</strong> {{storedAnswer.humidity}}</ion-label>
+
+
+  </ion-item>
+</ion-list>
+
+
+</ion-content>

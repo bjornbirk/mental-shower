@@ -1,3 +1,25 @@
 <ion-app>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title routerLink="/home">
+        Mental Shower Survey
+      </ion-title>
+      <ion-button routerLink="/stats" slot="end">Stats</ion-button>
+      
+  
+    </ion-toolbar>
+  </ion-header>
+  <!--
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Mental Shower Survey</ion-title>
+  
+      </ion-toolbar>
+    </ion-header>
+  </ion-content>
+  -->
   <ion-router-outlet></ion-router-outlet>
+
 </ion-app>

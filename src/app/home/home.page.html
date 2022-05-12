@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Mental Shower Survey
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
 
-<ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Mental Shower Survey</ion-title>
-      </ion-toolbar>
-    </ion-header>
-  
+<div id="container">
+<div *ngIf="!user.zone">
 
+  <h4>Welcome to the Mental Shower Survey</h4>
+
+  <h2>Please scan a QR code to get started.</h2>
+    <p>Or select your zone manually below:</p>
+
+    <ul class="items">
+      YOU ARE IN ZONE NUMBER {{user.zone}}
+      <li (click)="onSelect(zone)" *ngFor="let zone of zones" >
+        
+        ID:{{zone.id}} --- NAME: {{zone.name}}
+        
+      </li>
+    </ul>
+  </div>
+
+<div *ngIf="!user.zone==0">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
 <h3>Current User Data</h3>
+</ion-card-title>
+</ion-card-header>
+<ion-card-content>
 <ul>
   <li>userId: {{user.id}}</li>
   <li>timecode: {{user.timecode}}</li>
@@ -24,15 +36,9 @@
   <li>Air Quality: {{user.airquality}}</li>
   <li>Humidity: {{user.humidity}}</li>
 </ul>
+</ion-card-content>
+</ion-card>
 
-<ul class="items">
-  YOU ARE IN ZONE NUMBER {{user.zone}}
-  <li (click)="onSelect(zone)" *ngFor="let zone of zones" >
-    
-    ID:{{zone.id}} --- NAME: {{zone.name}}
-    
-  </li>
-</ul>
 
 
 
@@ -130,31 +136,6 @@
 
 
 
-<ion-content>
-  <h3>Stored User Data from Firestore</h3>
-  <ion-list>
-    <ion-item *ngFor="let storedAnswer of storedAnswers">
-      <ion-label><strong>Firestore docId:</strong> {{storedAnswer.id}}</ion-label>
-      <ion-label><strong>userId:</strong> {{storedAnswer.userId}}</ion-label>
-      <ion-label><strong>gender:</strong> {{storedAnswer.gender}}</ion-label>
-      <ion-label><strong>timecode:</strong> {{storedAnswer.timecode}}</ion-label>
-      <ion-label><strong>zone:</strong> {{storedAnswer.zone}}</ion-label>
-      <ion-label><strong>temperature:</strong> {{storedAnswer.temperature}}</ion-label>
-      <ion-label><strong>airquality:</strong> {{storedAnswer.airquality}}</ion-label>
-      <ion-label><strong>humidity:</strong> {{storedAnswer.humidity}}</ion-label>
-
-
-    </ion-item>
-  </ion-list>
-
+</div>
+</div><!-- #container -->
 </ion-content>
-
-
-  <div id="container">
-
-  
-  
-  </div>
-</ion-content>
-
-

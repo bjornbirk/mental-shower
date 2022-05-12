@@ -64,7 +64,7 @@ user = {
   }
 
   ngOnInit(): void {
-    console.log(this.storedAnswers);
+   // console.log(this.storedAnswers);
 
     // Set zone selection from QR code as property of user
     this.user.zone = parseInt(this.route.snapshot.paramMap.get('id'));
