@@ -43,3 +43,39 @@ div.spacer {
       font-size: 4rem;
       text-align: center;
   }
+
+  .large-text {
+      font-size: 2rem;
+      text-align: center;
+  }
+  .small-text {font-size: 1.5rem; font-weight: bold; text-align: center;}
+.raw-data * {font-size: 0.8rem; font-family: 'Courier New', Courier, monospace;}
+
+ion-label {color: #000000; font-weight: bold;}
+.gender-selection ion-item {--ion-background-color: #5e0053 !important; color: #ffffff !important;}
+
+.temperature-selection ion-item, .temperature-selection {color: #ffffff !important;}
+.temperature-selection .color-1 {--ion-background-color: #fd0c0d !important; background-color: #fd0c0d !important;}
+.temperature-selection .color-2 {--ion-background-color: #dd495b !important; background-color: #dd495b !important;}
+.temperature-selection .color-3 {--ion-background-color: #b95f88 !important; background-color: #b95f88 !important;}
+.temperature-selection .color-4 {--ion-background-color: #8b6ab7 !important; background-color: #8b6ab7 !important;}
+.temperature-selection .color-5 {--ion-background-color: #5f6bdd !important; background-color: #5f6bdd !important;}
+.temperature-selection .color-6 {--ion-background-color: #2267fd !important; background-color: #2267fd !important;}
+
+.airquality-selection ion-item, .airquality-selection {color: #ffffff !important;}
+.airquality-selection .color-1 {--ion-background-color: #b4eca3 !important; background-color: #b4eca3 !important;}
+.airquality-selection .color-2 {--ion-background-color: #b3df8e !important; background-color: #b3df8e !important;}
+.airquality-selection .color-3 {--ion-background-color: #b0cf77 !important; background-color: #b0cf77 !important;}
+.airquality-selection .color-4 {--ion-background-color: #acbd59 !important; background-color: #acbd59 !important;}
+.airquality-selection .color-5 {--ion-background-color: #a9ae3e !important; background-color: #a9ae3e !important;}
+.airquality-selection .color-6 {--ion-background-color: #a6a21f !important; background-color: #a6a21f !important;}
+
+
+.humidity-selection ion-item, .humidity-selection {color: #ffffff !important;}
+.humidity-selection .color-1 {--ion-background-color: #ee8c1d !important; background-color: #ee8c1d !important;}
+.humidity-selection .color-2 {--ion-background-color: #cd8b42 !important; background-color: #cd8b42 !important;}
+.humidity-selection .color-3 {--ion-background-color: #ad8854 !important; background-color: #ad8854 !important;}
+.humidity-selection .color-4 {--ion-background-color: #7e8267 !important; background-color: #7e8267 !important;}
+.humidity-selection .color-5 {--ion-background-color: #537b71 !important; background-color: #537b71 !important;}
+.humidity-selection .color-6 {--ion-background-color: #1b7479 !important; background-color: #1b7479 !important;}
+

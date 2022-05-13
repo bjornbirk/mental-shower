@@ -1,11 +1,8 @@
 <ion-content [fullscreen]="true" class="ion-padding">
 
   
-
 <div class="spacer"></div>
 <h1>Statistics Dashboard</h1>
-{{getAnswersByZone(1)}}
-<ion-button (click)="getAnswersByZone(1)">getAnswersByZone</ion-button>
 <ion-grid>
 <ion-row>
 <ion-col>
@@ -23,17 +20,29 @@
 <ion-col>
 <ion-card>
   <ion-card-header>
-  <ion-card-title>Unique Users</ion-card-title>
+  <ion-card-title>Unique Participants</ion-card-title>
   <ion-card-subtitle>The total number of unique users</ion-card-subtitle>
 </ion-card-header>
 <ion-card-content>
-  <div class="large-number">XX</div>
+  <div class="large-number">{{getNumberOfUniqueUsers()}}</div>
 
 </ion-card-content>
 </ion-card>
 
 </ion-col>
-
+<ion-col>
+  <ion-card>
+    <ion-card-header>
+    <ion-card-title>Average Surveys per Participant</ion-card-title>
+    <ion-card-subtitle>The total number of unique users</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="large-number">{{getAvgSurveysPerUser()}}</div>
+  
+  </ion-card-content>
+  </ion-card>
+  
+  </ion-col>
 
 
 </ion-row>
@@ -41,7 +50,173 @@
 </ion-grid>
 
 
-<h3>Stored User Data from Firestore</h3>
+<h3>Average Measurements by Zone</h3>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header><ion-card-title>Zone 1</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <div class="temperature-selection">
+            <ion-label>Temperature:</ion-label>
+            <div class="large-number color-{{getAvgByZone(1, 'temperature')}}">{{getAvgByZone(1, 'temperature')}}<!--<div class="small-text">{{getValueName(1, 'temperature')}}</div>--></div>
+            
+          </div>
+          <div class="airquality-selection">
+            <ion-label>Air Quality:</ion-label>
+            <div class="large-number color-{{getAvgByZone(1, 'airquality')}}">{{getAvgByZone(1, 'airquality')}}</div>
+          </div>
+          <div class="humidity-selection">
+            <ion-label>Humidity:</ion-label>
+            <div class="large-number color-{{getAvgByZone(1, 'humidity')}}">{{getAvgByZone(1, 'humidity')}}</div>
+          </div>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-header><ion-card-title>Zone 2</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <div class="temperature-selection">
+            <ion-label>Temperature:</ion-label>
+            <div class="large-number color-{{getAvgByZone(2, 'temperature')}}">{{getAvgByZone(2, 'temperature')}}</div>
+          </div>
+          <div class="airquality-selection">
+            <ion-label>Air Quality:</ion-label>
+            <div class="large-number color-{{getAvgByZone(2, 'airquality')}}">{{getAvgByZone(2, 'airquality')}}</div>
+          </div>
+          <div class="humidity-selection">
+            <ion-label>Humidity:</ion-label>
+            <div class="large-number color-{{getAvgByZone(2, 'humidity')}}">{{getAvgByZone(2, 'humidity')}}</div>
+          </div>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-header><ion-card-title>Zone 3</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <div class="temperature-selection">
+            <ion-label>Temperature:</ion-label>
+            <div class="large-number color-{{getAvgByZone(3, 'temperature')}}">{{getAvgByZone(3, 'temperature')}}</div>
+          </div>
+          <div class="airquality-selection">
+            <ion-label>Air Quality:</ion-label>
+            <div class="large-number color-{{getAvgByZone(3, 'airquality')}}">{{getAvgByZone(3, 'airquality')}}</div>
+          </div>
+          <div class="humidity-selection">
+            <ion-label>Humidity:</ion-label>
+            <div class="large-number color-{{getAvgByZone(3, 'humidity')}}">{{getAvgByZone(3, 'humidity')}}</div>
+          </div>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-header><ion-card-title>Zone 4</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <div class="temperature-selection">
+            <ion-label>Temperature:</ion-label>
+            <div class="large-number color-{{getAvgByZone(4, 'temperature')}}">{{getAvgByZone(4, 'temperature')}}</div>
+          </div>
+          <div class="airquality-selection">
+            <ion-label>Air Quality:</ion-label>
+            <div class="large-number color-{{getAvgByZone(4, 'airquality')}}">{{getAvgByZone(4, 'airquality')}}</div>
+          </div>
+          <div class="humidity-selection">
+            <ion-label>Humidity:</ion-label>
+            <div class="large-number color-{{getAvgByZone(4, 'humidity')}}">{{getAvgByZone(4, 'humidity')}}</div>
+          </div>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+      <ion-card-header><ion-card-title>Zone 5</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <div class="temperature-selection">
+          <ion-label>Temperature:</ion-label>
+          <div class="large-number color-{{getAvgByZone(5, 'temperature')}}">{{getAvgByZone(5, 'temperature')}}</div>
+        </div>
+        <div class="airquality-selection">
+          <ion-label>Air Quality:</ion-label>
+          <div class="large-number color-{{getAvgByZone(5, 'airquality')}}">{{getAvgByZone(5, 'airquality')}}</div>
+        </div>
+        <div class="humidity-selection">
+          <ion-label>Humidity:</ion-label>
+          <div class="large-number color-{{getAvgByZone(5, 'humidity')}}">{{getAvgByZone(5, 'humidity')}}</div>
+        </div>
+       </ion-card-content>
+    </ion-card>
+  </ion-col>
+    <ion-col>
+      <ion-card>
+      <ion-card-header><ion-card-title>Zone 6</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <div class="temperature-selection">
+          <ion-label>Temperature:</ion-label>
+          <div class="large-number color-{{getAvgByZone(6, 'temperature')}}">{{getAvgByZone(6, 'temperature')}}</div>
+        </div>
+        <div class="airquality-selection">
+          <ion-label>Air Quality:</ion-label>
+          <div class="large-number color-{{getAvgByZone(6, 'airquality')}}">{{getAvgByZone(6, 'airquality')}}</div>
+        </div>
+        <div class="humidity-selection">
+          <ion-label>Humidity:</ion-label>
+          <div class="large-number color-{{getAvgByZone(6, 'humidity')}}">{{getAvgByZone(6, 'humidity')}}</div>
+        </div>
+       </ion-card-content>
+    </ion-card>
+  </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-header><ion-card-title>Zone 7</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <div class="temperature-selection">
+            <ion-label>Temperature:</ion-label>
+            <div class="large-number color-{{getAvgByZone(7, 'temperature')}}">{{getAvgByZone(7, 'temperature')}}</div>
+          </div>
+          <div class="airquality-selection">
+            <ion-label>Air Quality:</ion-label>
+            <div class="large-number color-{{getAvgByZone(7, 'airquality')}}">{{getAvgByZone(7, 'airquality')}}</div>
+          </div>
+          <div class="humidity-selection">
+            <ion-label>Humidity:</ion-label>
+            <div class="large-number color-{{getAvgByZone(7, 'humidity')}}">{{getAvgByZone(7, 'humidity')}}</div>
+          </div>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-header><ion-card-title>Zone 8</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <div class="temperature-selection">
+            <ion-label>Temperature:</ion-label>
+            <div class="large-number color-{{getAvgByZone(8, 'temperature')}}">{{getAvgByZone(8, 'temperature')}}</div>
+          </div>
+          <div class="airquality-selection">
+            <ion-label>Air Quality:</ion-label>
+            <div class="large-number color-{{getAvgByZone(8, 'airquality')}}">{{getAvgByZone(8, 'airquality')}}</div>
+          </div>
+          <div class="humidity-selection">
+            <ion-label>Humidity:</ion-label>
+            <div class="large-number color-{{getAvgByZone(8, 'humidity')}}">{{getAvgByZone(8, 'humidity')}}</div>
+          </div>
+         </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<h3>Stored User Data from Firestore (Raw Data)</h3>
+
+  <ion-card>
+<ion-card-content>
+    <div class="raw-data">
+
 <ion-list>
   <ion-item *ngFor="let storedAnswer of storedAnswers">
     <ion-label><strong>Firestore docId:</strong> {{storedAnswer.id}}</ion-label>
@@ -56,6 +231,9 @@
 
   </ion-item>
 </ion-list>
+</div>
+</ion-card-content>
+</ion-card>
 
 
 </ion-content>

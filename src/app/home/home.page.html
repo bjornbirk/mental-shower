@@ -42,7 +42,7 @@
 
 
 
-<div id="gender-selection" *ngIf="stage==1">
+<div class="gender-selection" *ngIf="stage==1">
   <ion-list>
     <ion-item class="color-1" (click)="answer('gender', 1)">
       <ion-label><ion-icon name="female-outline"></ion-icon> Female</ion-label>
@@ -60,7 +60,7 @@
 </div>
 
 
-<div id="temperature-selection" *ngIf="stage==2">
+<div class="temperature-selection" *ngIf="stage==2">
   <h3>Temperature</h3>
   <ion-list>
       <ion-item class="color-1" (click)="answer('temperature', 1)">
@@ -83,7 +83,7 @@
       </ion-item>
   </ion-list>
 </div>
-<div id="airquality-selection" *ngIf="stage==3">
+<div class="airquality-selection" *ngIf="stage==3">
   <h3>Air Quality</h3>
   <ion-list>
     <ion-item class="color-1" (click)="answer('airquality', 1)">
@@ -106,7 +106,7 @@
     </ion-item>
 </ion-list>
 </div>
-<div id="humidity-selection" *ngIf="stage==4">
+<div class="humidity-selection" *ngIf="stage==4">
   <h3>Humidity</h3>
   <ion-list>
     <ion-item class="color-1" (click)="answer('humidity', 1)">
