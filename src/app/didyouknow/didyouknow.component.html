@@ -1,19 +1,16 @@
-<p>
-  didyouknow works!
-</p>
-<p>
-  didyouknow works!
-</p>
-
-<p>
-  didyouknow works!
-</p>
-<p>
-  didyouknow works!
-</p>
-<p>
-  didyouknow works!
-</p>
-<p>
-  didyouknow works!
-</p>
+<div class="container">
+  <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
+    <div class="front">
+    FRONT
+      <div class="arrow-icon" (click)="toggle()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="back">
+      BACK
+      <div class="arrow-icon" (click)="toggle()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>

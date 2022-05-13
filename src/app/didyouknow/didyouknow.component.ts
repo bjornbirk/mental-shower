@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DidyouknowComponent implements OnInit {
 
+  toggleProperty = false;
+
   constructor() { }
 
   ngOnInit() {}
+
+  toggle() {
+    this.toggleProperty = !this.toggleProperty;
+  }
 
 }
