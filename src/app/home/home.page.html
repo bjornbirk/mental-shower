@@ -5,41 +5,20 @@
 
   <h4>Welcome to the Mental Shower Survey</h4>
 
-  <h2>Please scan a QR code to get started.</h2>
+  <h2>Please scan a QR code with your phone camera to get started.</h2>
     <p>Or select your zone manually below:</p>
 
-    <ul class="items">
-      YOU ARE IN ZONE NUMBER {{user.zone}}
-      <li (click)="onSelect(zone)" *ngFor="let zone of zones" >
-        
-        ID:{{zone.id}} --- NAME: {{zone.name}}
-        
-      </li>
-    </ul>
-  </div>
+
+<div class="zone-selection">
+<ion-list>
+  <ion-item (click)="onSelect(zone)" *ngFor="let zone of zones">
+    Zone {{zone.id}}
+  </ion-item>
+</ion-list>
+</div><!-- .zone-selection -->
+</div>
 
 <div *ngIf="!user.zone==0">
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-<h3>Current User Data</h3>
-</ion-card-title>
-</ion-card-header>
-<ion-card-content>
-<ul>
-  <li>userId: {{user.id}}</li>
-  <li>timecode: {{user.timecode}}</li>
-  <li>Gender: {{user.gender}}</li>
-  <li>Zone: {{user.zone}}</li>
-  <li>Temperature: {{user.temperature}}</li>
-  <li>Air Quality: {{user.airquality}}</li>
-  <li>Humidity: {{user.humidity}}</li>
-</ul>
-</ion-card-content>
-</ion-card>
-
-
 
 
 <div class="gender-selection" *ngIf="stage==1">

@@ -38,6 +38,14 @@ export class HomePage implements OnInit {
       id: 6,
       name: 'zone 6',
     },
+    {
+      id: 7,
+      name: 'zone 7',
+    },
+    {
+      id: 8,
+      name: 'zone 8',
+    }
   ];
 
 // Set up stages to control what components to show to the user
