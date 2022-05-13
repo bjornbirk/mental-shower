@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home/home.page';
 import { StatsComponent } from './stats/stats.component';
 import { SurveyComponent } from './survey/survey.component';
+import { DidyouknowComponent } from './didyouknow/didyouknow.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
   },
   {
     path:'stats', component: StatsComponent
+  },
+  {
+    path:'didyouknow', component: DidyouknowComponent
   }
 ];
 
