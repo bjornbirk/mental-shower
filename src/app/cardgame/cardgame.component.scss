@@ -15,3 +15,35 @@
 .flipped {
     transform: rotateY(180deg);
 }
+
+.correct-answer {
+    background-color: green;
+    color: #ffffff;
+    border-radius: 1rem;
+    margin: 1rem;
+
+}
+.wrong-answer {
+    background-color: red;
+    color: #ffffff;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+
+.score-bar {
+    height: 2rem;
+    border: 2px solid blue;
+    border-radius: 1rem;
+    width: 100%;
+    text-align: left;
+
+
+}
+.score-bar-completed {
+    height: 100%;
+    width: 0%;
+    border-radius: 1rem;
+
+    background-color: green;
+}
