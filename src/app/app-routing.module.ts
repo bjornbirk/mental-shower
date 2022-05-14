@@ -4,6 +4,7 @@ import { HomePage } from './home/home.page';
 import { StatsComponent } from './stats/stats.component';
 import { SurveyComponent } from './survey/survey.component';
 import { DidyouknowComponent } from './didyouknow/didyouknow.component';
+import { CardgameComponent } from './cardgame/cardgame.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
   },
   {
     path:'didyouknow', component: DidyouknowComponent
+  },
+  {
+    path:'cardgame', component: CardgameComponent
   }
 ];
 

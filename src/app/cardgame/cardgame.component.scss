@@ -1,0 +1,15 @@
+.card {
+   
+transform-style: preserve-3d;
+transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card .card-back, .card .card-front {
+//backface-visibility: hidden;
+}
+.card-back {
+      transform: rotateY(180deg);
+  }
+  
+  .flipped {
+    transform: rotateY(180deg);
+  }

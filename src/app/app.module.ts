@@ -13,11 +13,13 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 // Stats Dashboard
 import { StatsComponent } from './stats/stats.component';
 import { DidyouknowComponent } from './didyouknow/didyouknow.component';
+// Cardgame
+import { CardgameComponent } from './cardgame/cardgame.component';
 
     
 
 @NgModule({
-  declarations: [AppComponent, StatsComponent, DidyouknowComponent],
+  declarations: [AppComponent, StatsComponent, DidyouknowComponent, CardgameComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
