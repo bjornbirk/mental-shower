@@ -7,14 +7,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DidyouknowComponent implements OnInit {
 
-  toggleProperty = false;
-
+  cardPart = 0;
+  temperatureCard = 0;
+  toggleProperty = [false, false, false, false];
   constructor() { }
 
-  ngOnInit() {}
-
-  toggle() {
-    this.toggleProperty = !this.toggleProperty;
+  ngOnInit() {
+    console.log(this.toggleProperty[1]);
   }
+
+  changeCards(){
+    this.cardPart++;
+    console.log(this.cardPart);
+  }
+  toggle(cardId:number) {
+
+    if(this.toggleProperty[cardId] == false) {
+      this.toggleProperty[cardId] = true;
+      if (cardId == 1) {
+        this.temperatureCard++;
+  
+        if (this.temperatureCard == 3) {
+          this.temperatureCard = 1;
+        }
+
+      } // temperature
+
+    } else {
+      this.toggleProperty[cardId] = false;
+    }
+
+    
+
+  }
+
 
 }

@@ -1,16 +1,151 @@
-<div class="container">
-  <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
-    <div class="front">
-    FRONT
-      <div class="arrow-icon" (click)="toggle()">
-        <ion-icon name="arrow-forward-outline"></ion-icon>
-      </div>
-    </div>
-    <div class="back">
-      BACK
-      <div class="arrow-icon" (click)="toggle()">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="spacer"></div>
+<ion-content>
+  <div id="container">
+  
+  <ion-grid>
+    <ion-row>
+      <!-- TEMPERATURE CARDS -->
+
+      <ion-col>
+  
+        <div class="container">
+          <div [ngClass]="toggleProperty[1] ? 'flipped' : ''" class="card">
+            <div class="front" (click)="toggle(1)">
+            
+
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Temperature</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <img src="https://media2.giphy.com/media/4ZgLPakqTajjVFOVqw/giphy.gif">
+                </ion-card-content>
+              </ion-card>
+              
+
+
+              
+            </div>
+            <div class="back" (click)="toggle(1)">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Did you know...</ion-card-title>
+                </ion-card-header>
+                <ion-card-content *ngIf="temperatureCard==1">
+               
+                  
+                  <p><strong>that Low/High Temperature can affect concentration?</strong></p>
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+
+
+                </ion-card-content>
+                <ion-card-content *ngIf="temperatureCard==2">
+                  <p>Did you know that personal weight can affect temperature perception?</p>
+                    <p>A person's weight, specifically body mass index or BMI, can affect how they react to temperature. Those who weigh more will feel warm more quickly, while those with lower-than-average BMI usually get cold easier.</p>
+                </ion-card-content>
+              </ion-card>
+               
+            </div>
+          </div>
+        </div>
+  
+  
+      </ion-col>
+      
+<!-- AIR QUALITY CARDS -->
+
+
+      <ion-col>
+  
+        <div class="container">
+          <div [ngClass]="toggleProperty[2] ? 'flipped' : ''" class="card">
+            <div class="front" (click)="toggle(2)">
+            
+
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Air Quality</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <img src="https://media2.giphy.com/media/4ZgLPakqTajjVFOVqw/giphy.gif">
+                </ion-card-content>
+              </ion-card>
+              
+
+
+              
+            </div>
+            <div class="back" (click)="toggle(2)">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Did you know...</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>Did you know that Low/High Temperature can affect concentration?</p>
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+             
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+
+      </ion-card-content>
+              </ion-card>
+               
+            </div>
+          </div>
+        </div>
+  
+  
+      </ion-col>
+
+
+<!-- HUMIDITY CARDS -->
+
+      <ion-col>
+  
+        <div class="container">
+          <div [ngClass]="toggleProperty[2] ? 'flipped' : ''" class="card">
+            <div class="front" (click)="toggle(2)">
+            
+
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Air Quality</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <img src="https://media2.giphy.com/media/4ZgLPakqTajjVFOVqw/giphy.gif">
+                </ion-card-content>
+              </ion-card>
+              
+
+
+              
+            </div>
+            <div class="back" (click)="toggle(2)">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Did you know...</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>Did you know that Low/High Temperature can affect concentration?</p>
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+             
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+        <p>When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.</p>
+
+      </ion-card-content>
+              </ion-card>
+               
+            </div>
+          </div>
+        </div>
+  
+  
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+</div><!-- #container -->
+  </ion-content>
+  
