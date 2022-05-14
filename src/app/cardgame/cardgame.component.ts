@@ -14,7 +14,6 @@ score:number = 0;
 
 cards = [
   {
-    id: 1,
     header: 'that temperature can affect concentration?',
     text: "When a room is at a Low or High Temperature our bodies use more energy to balance the body temperature with the room temperature so it affects our power of concentraion as we do not have enough energy to focus. The optimal temperature for working/studying is between 21-23 celsius degrees.",
     question: 'What affects concentration?',
@@ -22,7 +21,6 @@ cards = [
     answeredCorrectly: false
   },
   {
-    id: 2,
     header: 'that personal weight can affect temperature perception?',
     text: "A person's weight, specifically body mass index or BMI, can affect how they react to temperature. Those who weigh more will feel warm more quickly, while those with lower-than-average BMI usually get cold easier.",
     question: 'What perception does personal weight affect?',

@@ -27,9 +27,9 @@
             <ion-card-title>{{cards[currentCard].question}}</ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="answerIsCorrect==0">
-            <ion-button (click)="cardAnswer('Temperature')">Temperature</ion-button>
-            <ion-button (click)="cardAnswer('Air Quality')">Air Quality</ion-button>
-            <ion-button (click)="cardAnswer('Humidity')">Humidity</ion-button>
+            <ion-button (click)="cardAnswer('Temperature')"><ion-icon name="thermometer"></ion-icon> Temperature</ion-button>
+            <ion-button (click)="cardAnswer('Air Quality')"><ion-icon name="partly-sunny"></ion-icon> Air Quality</ion-button>
+            <ion-button (click)="cardAnswer('Humidity')"><ion-icon name="water"></ion-icon> Humidity</ion-button>
           </ion-card-content>
           <ion-card-content *ngIf="answerIsCorrect==1">
             <div class="large-text">Correct!</div><div> {{cards[currentCard].answer}} does.</div>
@@ -70,4 +70,5 @@
 </ion-card>
 
 </div><!-- #container -->
+
 </ion-content>
