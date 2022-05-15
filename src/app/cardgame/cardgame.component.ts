@@ -134,6 +134,14 @@ cards = [
   }
   */
 
+  scoreBarStatus: Record<string, string> = {};
+  updateScoreBar(){
+    this.scoreBarStatus = {
+      'width': this.score * 8.3333 + '%' // Update the score bar, 8.333 for 12 questions
+    }
+//    this.scoreBarCompleted = this.score * 8.3333; // Update the score bar, 8.333 for 12 questions
+  }
+
   cardAnswer(cardAnswer:string) {
     //check if answer is correct and remove from array if it is.
     if (cardAnswer == this.cards[this.currentCard].answer) {
@@ -141,7 +149,7 @@ cards = [
       this.hideHeader = true;
       
       this.score++;
-      this.scoreBarCompleted = this.score * 8.3333; // Update the score bar, 8.333 for 12 questions
+      this.updateScoreBar()
 
 
       if (this.cards.length > 1 ) {
