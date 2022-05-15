@@ -1,6 +1,22 @@
+
+.ion-page, #background-content, #container, ion-content {
+background-color: #54494b !important;
+--ion-background-color: #54494b;
+
+}
 .card {
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card ion-card{
+    background-color: #e3d091;
+    background-color: #f1f7ed;
+
+}
+
+
+.card ion-card-title {
+    font-size: 1.2rem;
 }
 
 .card .card-back,
@@ -8,7 +24,11 @@
     //backface-visibility: hidden;
 }
 
+.card-front ion-card-content {
+    text-align: left;
+}
 .card-back {
+    text-align: center;
     transform: rotateY(180deg);
 }
 
@@ -17,26 +37,31 @@
 }
 
 .correct-answer {
-    background-color: green;
+    background-color: #91c7b1;
     color: #ffffff;
     border-radius: 1rem;
     margin: 1rem;
 
 }
 .wrong-answer {
-    background-color: red;
+    background-color: #b33951;
     color: #ffffff;
     border-radius: 1rem;
     margin: 1rem;
 }
 
+.score-card, ion-card.game-title  {
+    background-color: #e3d091;
+   
+}
 
 .score-bar {
     height: 2rem;
-    border: 2px solid blue;
+//    border: 2px solid blue;
     border-radius: 1rem;
     width: 100%;
     text-align: left;
+    background-color: #f1f7ed;
 
 
 }
@@ -45,5 +70,37 @@
     width: 0%;
     border-radius: 1rem;
 
-    background-color: green;
+//    background-color: green;
+background-color: #91c7b1;
+
+}
+
+.answer-buttons div, .newcard-button {
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.newcard-button {
+    background-color: #e3d091;
+}
+
+.temperature-button {
+    color: #ffffff;
+    background: rgb(253,12,13);
+    background: linear-gradient(90deg, rgba(253,12,13,1) 0%, rgba(34,103,253,1) 100%);
+}
+
+.airquality-button {
+    color: #ffffff;
+    background: rgb(180,236,163);
+background: linear-gradient(90deg, rgba(180,236,163,1) 0%, rgba(166,162,31,1) 100%);
+}
+
+.humidity-button {
+    color: #ffffff;
+    background: rgb(238,140,29);
+background: linear-gradient(90deg, rgba(238,140,29,1) 0%, rgba(27,116,121,1) 100%);
 }

@@ -1,88 +1,122 @@
 <ion-content class="ion-padding">
 
-    <div class="spacer"></div>
-    <div id="container">
+  <div class="spacer"></div>
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
 
-      <h1>Memory card game!</h1>
-      <p>Click the card to turn it and answer a question!</p>
-        <ion-grid>
-            <ion-row>
-                <ion-col size-md="6" offset-md="3">
-
-
-
-
-
-                    <div [ngClass]="cardTurned ? 'flipped' : ''" class="card" *ngIf="!isWon">
-                        <ion-card *ngIf="!cardTurned" class="card-front" (click)="turnCard()">
-                            <ion-card-header>
-                                <ion-card-subtitle>Did you know</ion-card-subtitle>
-                                <ion-card-title>{{cards[currentCard].header}}</ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content>
-                                {{cards[currentCard].text}}
-                            </ion-card-content>
-                        </ion-card>
-
-                        <ion-card *ngIf="cardTurned" class="card-back">
-                            <ion-card-header>
-                                <ion-card-subtitle *ngIf="!hideHeader">Pick an answer</ion-card-subtitle>
-                                <ion-card-title *ngIf="!hideHeader">{{cards[currentCard].question}}</ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content *ngIf="answerStatus==0">
-                                <ion-button class="buton" shape="round" (click)="cardAnswer('Temperature')">
-                                    <ion-icon name="thermometer"></ion-icon> Temperature</ion-button>
-                                <ion-button class="buton" shape="round" (click)="cardAnswer('Air Quality')">
-                                    <ion-icon name="partly-sunny"></ion-icon> Air Quality</ion-button>
-                                <ion-button class="buton" shape="round" (click)="cardAnswer('Humidity')">
-                                    <ion-icon name="water"></ion-icon> Humidity</ion-button>
-                            </ion-card-content>
-                            <ion-card-content class="correct-answer" *ngIf="answerStatus==1">
-                                <div class="large-text">Correct!</div>
-                                <div> {{cards[currentCard].answer}} is the right answer.</div>
-                            </ion-card-content>
-                            <ion-card-content class="wrong-answer" *ngIf="answerStatus==2">
-                                <div class="large-text">Wrong!</div>
-                                <div> Better luck next time.</div>
-                            </ion-card-content>
-                            <ion-card-content *ngIf="answerStatus!=0">
-                                <ion-button (click)="newCard()">Try a new card</ion-button>
-                            </ion-card-content>
-
-                        </ion-card>
-                    </div>
-                    <!-- .card -->
-
-
-
-
-
-
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-
-
-
-
-        <div class="spacer"></div>
-        <ion-card>
+          <ion-card class="game-title">
+            <ion-card-header>
+              <ion-card-title>Memory card game</ion-card-title>
+            </ion-card-header>
             <ion-card-content>
-                <div class="score">
-                  <div class="score-bar">
-                    <div class="score-bar-completed" [style.width.%]="scoreBarCompleted">&nbsp;</div>
-                  </div>
-                    <strong>You have answered {{score}} of {{totalNumberOfCards}} correctly!</strong>
-                </div>
-                <!-- .score -->
-
-                <div class="completed" *ngIf="isWon">
-                    <div class="large-text">You completed all the questions!</div>
-                </div>
+              <p>Click the card to turn it and answer a question!</p>
             </ion-card-content>
-        </ion-card>
+          </ion-card>
+        </ion-col>
 
-    </div>
-    <!-- #container -->
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+
+
+
+
+
+          <div [ngClass]="cardTurned ? 'flipped' : ''" class="card" *ngIf="!isWon">
+            <ion-card *ngIf="!cardTurned" class="card-front" (click)="turnCard()">
+              <ion-card-header>
+                <ion-card-subtitle>Did you know</ion-card-subtitle>
+                <ion-card-title>{{cards[currentCard].header}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{cards[currentCard].text}}
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card *ngIf="cardTurned" class="card-back">
+              <ion-card-header>
+                <ion-card-subtitle *ngIf="!hideHeader">Pick an answer</ion-card-subtitle>
+                <ion-card-title *ngIf="!hideHeader">{{cards[currentCard].question}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content *ngIf="answerStatus==0">
+                <ion-grid class="answer-buttons">
+                  <ion-row>
+                    <ion-col>
+                      <div class="temperature-button" (click)="cardAnswer('Temperature')">Temperature</div>
+                    </ion-col>
+                    <ion-col>
+                      <div class="airquality-button" (click)="cardAnswer('Air Quality')">Air Quality</div>
+                    </ion-col>
+                    <ion-col>
+                      <div class="humidity-button" (click)="cardAnswer('Humidity')">Humidity</div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+
+
+
+
+                
+              </ion-card-content>
+              <ion-card-content class="correct-answer" *ngIf="answerStatus==1">
+                <div class="large-text">Correct!</div>
+                <div> {{cards[currentCard].answer}} is the right answer.</div>
+              </ion-card-content>
+              <ion-card-content class="wrong-answer" *ngIf="answerStatus==2">
+                <div class="large-text">Wrong!</div>
+                <div> Better luck next time.</div>
+              </ion-card-content>
+              <ion-card-content *ngIf="answerStatus!=0">
+                <div class="newcard-button" (click)="newCard()">Try a new card</div>
+              </ion-card-content>
+
+            </ion-card>
+          </div>
+          <!-- .card -->
+
+
+
+
+
+
+        </ion-col>
+      </ion-row>
+
+
+
+
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+
+          <div class="spacer"></div>
+          <ion-card class="score-card">
+            <ion-card-content>
+              <div class="score">
+                <div class="score-bar">
+                  <div class="score-bar-completed" [style.width.%]="scoreBarCompleted">&nbsp;</div>
+                </div>
+                <p>&nbsp;</p>
+                <strong>You have answered {{score}} of {{totalNumberOfCards}} correctly!</strong>
+              </div>
+              <!-- .score -->
+
+              <div class="completed" *ngIf="isWon">
+                <div class="large-text">You completed all the questions!</div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+  </div>
+  <!-- #container -->
 
 </ion-content>
