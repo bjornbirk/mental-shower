@@ -153,6 +153,7 @@ answer(cat:string, val:number) {
 
 //  public zoneId;
   
+stepBack() {this.stage--;}
 
   // Store user data and survey answers
   async sendAnswers() {

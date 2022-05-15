@@ -1,120 +1,199 @@
 <ion-content class="ion-padding">
 
-<div id="container">
-<div *ngIf="!user.zone">
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
 
-  <h4>Welcome to the Mental Shower Survey</h4>
+          <div *ngIf="!user.zone">
 
-  <h2>Please scan a QR code with your phone camera to get started.</h2>
-    <p>Or select your zone manually below:</p>
+            <h4>Welcome to the Mental Shower Survey</h4>
 
-
-<div class="zone-selection">
-<ion-list>
-  <ion-item (click)="onSelect(zone)" *ngFor="let zone of zones">
-    Zone {{zone.id}}
-  </ion-item>
-</ion-list>
-</div><!-- .zone-selection -->
-</div>
-
-<div *ngIf="!user.zone==0">
-
-
-<div class="gender-selection" *ngIf="stage==1">
-  <ion-list>
-    <ion-item class="color-1" (click)="answer('gender', 1)">
-      <ion-label><ion-icon name="female-outline"></ion-icon> Female</ion-label>
-    </ion-item>
-    <ion-item class="color-2" (click)="answer('gender', 2)">
-      <ion-label><ion-icon name="male-outline"></ion-icon> Male</ion-label>
-    </ion-item>
-    <ion-item class="color-3" (click)="answer('gender', 3)">
-      <ion-label><ion-icon name="male-female-outline"></ion-icon> Non-binary</ion-label>
-    </ion-item>
-    <ion-item class="color-4" (click)="answer('gender', 4)">
-      <ion-label><ion-icon name="person-outline"></ion-icon> Rather not say</ion-label>
-    </ion-item>
-</ion-list>
-</div>
-
-
-<div class="temperature-selection" *ngIf="stage==2">
-  <h3>Temperature</h3>
-  <ion-list>
-      <ion-item class="color-1" (click)="answer('temperature', 1)">
-        <ion-label>Very warm</ion-label>
-      </ion-item>
-      <ion-item class="color-2" (click)="answer('temperature', 2)">
-        <ion-label>A little warm</ion-label>
-      </ion-item>
-      <ion-item class="color-3" (click)="answer('temperature', 3)">
-        <ion-label>Warm</ion-label>
-      </ion-item>
-      <ion-item class="color-4" (click)="answer('temperature', 4)">
-        <ion-label>Cold</ion-label>
-      </ion-item>
-      <ion-item class="color-5" (click)="answer('temperature', 5)">
-        <ion-label>A little cold</ion-label>
-      </ion-item>
-      <ion-item class="color-6" (click)="answer('temperature', 6)">
-        <ion-label>Very cold</ion-label>
-      </ion-item>
-  </ion-list>
-</div>
-<div class="airquality-selection" *ngIf="stage==3">
-  <h3>Air Quality</h3>
-  <ion-list>
-    <ion-item class="color-1" (click)="answer('airquality', 1)">
-      <ion-label>Very fresh</ion-label>
-    </ion-item>
-    <ion-item class="color-2" (click)="answer('airquality', 2)">
-      <ion-label>Fresh enough</ion-label>
-    </ion-item>
-    <ion-item class="color-3" (click)="answer('airquality', 3)">
-      <ion-label>Fresh</ion-label>
-    </ion-item>
-    <ion-item class="color-4" (click)="answer('airquality', 4)">
-      <ion-label>Musty</ion-label>
-    </ion-item>
-    <ion-item class="color-5" (click)="answer('airquality', 5)">
-      <ion-label>A little musty</ion-label>
-    </ion-item>
-    <ion-item class="color-6" (click)="answer('airquality', 6)">
-      <ion-label>Very musty</ion-label>
-    </ion-item>
-</ion-list>
-</div>
-<div class="humidity-selection" *ngIf="stage==4">
-  <h3>Humidity</h3>
-  <ion-list>
-    <ion-item class="color-1" (click)="answer('humidity', 1)">
-      <ion-label>Very dry</ion-label>
-    </ion-item>
-    <ion-item class="color-2" (click)="answer('humidity', 2)">
-      <ion-label>Too dry</ion-label>
-    </ion-item>
-    <ion-item class="color-3" (click)="answer('humidity', 3)">
-      <ion-label>Dry</ion-label>
-    </ion-item>
-    <ion-item class="color-4" (click)="answer('humidity', 4)">
-      <ion-label>Damp</ion-label>
-    </ion-item>
-    <ion-item class="color-5" (click)="answer('humidity', 5)">
-      <ion-label>Too damp</ion-label>
-    </ion-item>
-    <ion-item class="color-6" (click)="answer('humidity', 6)">
-      <ion-label>Very damp</ion-label>
-    </ion-item>
-</ion-list>
-</div>
-<div id="thankyou-confirmation" *ngIf="stage==5">
-  <h3>Thank you</h3>
-
-</div>
+            <h2>Please scan a QR code with your phone camera to get started.</h2>
 
 
 
-</div>
-</div><!-- #container -->
+            <div class="zone-selection">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>Or select your current zone manually</ion-card-subtitle>
+                  <ion-card-title>
+                    Zone Selection
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+
+              <ion-list>
+                <ion-item (click)="onSelect(zone)" *ngFor="let zone of zones">
+                  Zone {{zone.id}}
+                </ion-item>
+              </ion-list>
+              </ion-card-content>
+              </ion-card>
+            </div><!-- .zone-selection -->
+          </div>
+
+          <div *ngIf="!user.zone==0">
+
+
+            <div class="gender-selection" *ngIf="stage==1">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>Please choose your</ion-card-subtitle>
+                  <ion-card-title>
+                    Gender Identification
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+
+                  <ion-list>
+                    <ion-item class="color-1" (click)="answer('gender', 1)">
+                      <ion-label>
+                        <ion-icon name="female-outline"></ion-icon> Female
+                      </ion-label>
+                    </ion-item>
+                    <ion-item class="color-2" (click)="answer('gender', 2)">
+                      <ion-label>
+                        <ion-icon name="male-outline"></ion-icon> Male
+                      </ion-label>
+                    </ion-item>
+                    <ion-item class="color-3" (click)="answer('gender', 3)">
+                      <ion-label>
+                        <ion-icon name="male-female-outline"></ion-icon> Non-binary
+                      </ion-label>
+                    </ion-item>
+                    <ion-item class="color-4" (click)="answer('gender', 4)">
+                      <ion-label>
+                        <ion-icon name="person-outline"></ion-icon> Rather not say
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+
+                </ion-card-content>
+              </ion-card>
+            </div>
+
+
+
+
+            <div class="temperature-selection" *ngIf="stage==2">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>Please describe how you are feeling.</ion-card-subtitle>
+                  <ion-card-title>
+                    How is the temperature?
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+              <ion-list>
+                <ion-item class="color-1" (click)="answer('temperature', 1)">
+                  <ion-label>Very warm</ion-label>
+                </ion-item>
+                <ion-item class="color-2" (click)="answer('temperature', 2)">
+                  <ion-label>A little warm</ion-label>
+                </ion-item>
+                <ion-item class="color-3" (click)="answer('temperature', 3)">
+                  <ion-label>Warm</ion-label>
+                </ion-item>
+                <ion-item class="color-4" (click)="answer('temperature', 4)">
+                  <ion-label>Cold</ion-label>
+                </ion-item>
+                <ion-item class="color-5" (click)="answer('temperature', 5)">
+                  <ion-label>A little cold</ion-label>
+                </ion-item>
+                <ion-item class="color-6" (click)="answer('temperature', 6)">
+                  <ion-label>Very cold</ion-label>
+                </ion-item>
+              </ion-list>
+              <ion-button (click)="stepBack()"><ion-icon name="arrow-back"></ion-icon> Previous</ion-button>
+              </ion-card-content>
+              </ion-card>
+            </div>
+            <div class="airquality-selection" *ngIf="stage==3">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>Please describe how you are feeling.</ion-card-subtitle>
+                  <ion-card-title>
+                    How is the air quality?
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+
+              <ion-list>
+                <ion-item class="color-1" (click)="answer('airquality', 1)">
+                  <ion-label>Very fresh</ion-label>
+                </ion-item>
+                <ion-item class="color-2" (click)="answer('airquality', 2)">
+                  <ion-label>Fresh enough</ion-label>
+                </ion-item>
+                <ion-item class="color-3" (click)="answer('airquality', 3)">
+                  <ion-label>Fresh</ion-label>
+                </ion-item>
+                <ion-item class="color-4" (click)="answer('airquality', 4)">
+                  <ion-label>Musty</ion-label>
+                </ion-item>
+                <ion-item class="color-5" (click)="answer('airquality', 5)">
+                  <ion-label>A little musty</ion-label>
+                </ion-item>
+                <ion-item class="color-6" (click)="answer('airquality', 6)">
+                  <ion-label>Very musty</ion-label>
+                </ion-item>
+              </ion-list>
+              <ion-button (click)="stepBack()"><ion-icon name="arrow-back"></ion-icon> Previous</ion-button>
+</ion-card-content>
+</ion-card>
+            </div>
+            <div class="humidity-selection" *ngIf="stage==4">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>Please describe how you are feeling.</ion-card-subtitle>
+                  <ion-card-title>
+                    How is the humidity?
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+
+              <ion-list>
+                <ion-item class="color-1" (click)="answer('humidity', 1)">
+                  <ion-label>Very dry</ion-label>
+                </ion-item>
+                <ion-item class="color-2" (click)="answer('humidity', 2)">
+                  <ion-label>Too dry</ion-label>
+                </ion-item>
+                <ion-item class="color-3" (click)="answer('humidity', 3)">
+                  <ion-label>Dry</ion-label>
+                </ion-item>
+                <ion-item class="color-4" (click)="answer('humidity', 4)">
+                  <ion-label>Damp</ion-label>
+                </ion-item>
+                <ion-item class="color-5" (click)="answer('humidity', 5)">
+                  <ion-label>Too damp</ion-label>
+                </ion-item>
+                <ion-item class="color-6" (click)="answer('humidity', 6)">
+                  <ion-label>Very damp</ion-label>
+                </ion-item>
+              </ion-list>
+              <ion-button (click)="stepBack()"><ion-icon name="arrow-back"></ion-icon> Previous</ion-button>
+</ion-card-content>
+</ion-card>
+            </div>
+            <div id="thankyou-confirmation" *ngIf="stage==5">
+              <h3>Thank you for your answers</h3>
+              <h4>We will now adjust the climate in your zone accordingly!</h4>
+              <h4><a href="/cardgame">Meanwhile, try out our memory card quiz game!</a></h4>
+
+            </div>
+
+
+
+          </div>
+
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+  </div><!-- #container -->
 </ion-content>
