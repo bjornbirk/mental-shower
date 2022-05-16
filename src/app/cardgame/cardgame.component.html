@@ -6,12 +6,24 @@
       <ion-row>
         <ion-col size-md="6" offset-md="3">
 
-          <ion-card class="game-title">
+          <ion-card class="game-title score-card">
             <ion-card-header>
               <ion-card-title>Memory card game</ion-card-title>
             </ion-card-header>
             <ion-card-content>
               <p>Click the card to turn it and answer a question!</p>
+              <div class="score">
+                <div class="score-bar">
+                  <div class="score-bar-completed" [ngStyle]="scoreBarStatus">&nbsp;</div>
+                </div>
+                <p>&nbsp;</p>
+                <strong>You have answered {{score}} of {{totalNumberOfCards}} correctly!</strong>
+              </div>
+              <!-- .score -->
+
+              <div class="completed" *ngIf="isWon">
+                <div class="large-text">You completed all the questions!</div>
+              </div>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -88,28 +100,7 @@
 
 
 
-      <ion-row>
-        <ion-col size-md="6" offset-md="3">
-          <ion-card class="score-card">
-            <ion-card-content>
-              <div class="score">
-                <div class="score-bar">
-                  <div class="score-bar-completed" [ngStyle]="scoreBarStatus">&nbsp;</div>
-                </div>
-                <p>&nbsp;</p>
-                <strong>You have answered {{score}} of {{totalNumberOfCards}} correctly!</strong>
-              </div>
-              <!-- .score -->
-
-              <div class="completed" *ngIf="isWon">
-                <div class="large-text">You completed all the questions!</div>
-              </div>
-            </ion-card-content>
-          </ion-card>
-
-
-        </ion-col>
-      </ion-row>
+      
     </ion-grid>
 
 

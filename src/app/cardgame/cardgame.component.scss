@@ -24,9 +24,13 @@ background-color: #54494b !important;
 .card .card-front {
     //backface-visibility: hidden;
 }
+.card-front {
+    cursor: pointer;
+}
 
 .card-front ion-card-content {
     text-align: left;
+
 }
 .card-back {
     text-align: center;
@@ -53,7 +57,7 @@ background-color: #54494b !important;
 
 .score-card, ion-card.game-title  {
     background-color: #e3d091;
-   
+   text-align: center;
 }
 
 .score-bar {
